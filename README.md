@@ -1,6 +1,12 @@
 # Setup Guide
+## Install
 ```
 npm install
+```
+
+## Run
+```
+curl -0 -o output.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8080
 ```
 
 # Job Description
