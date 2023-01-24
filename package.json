@@ -4,13 +4,14 @@
   "description": "Receipt Prove Generator",
   "main": "run.js",
   "scripts": {
-    "dev": "node --watch run.js",
-    "start": "node run.js"
+    "dev": "node --watch server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Kerrick Chan <me@kerrick.dev>",
   "license": "ISC",
   "dependencies": {
+    "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "lodash.template": "^4.5.0",

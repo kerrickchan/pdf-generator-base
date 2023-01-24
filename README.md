@@ -1,12 +1,70 @@
+# aahk-bsms-pdf
+
 # Setup Guide
 ## Install
-```
+### Node Package
+```bash
 npm install
 ```
+### Chromium Runtime Engine
+```bash
+sudo apt install chromium
+```
+
+## FAQ
+### OS Font For Display Chinese 
+```bash
+sudo apt-get install fonts-indic
+sudo apt-get install fonts-noto
+sudo apt-get install fonts-noto-cjk
+```
+
+### PM2 Could not find Chromium Problem
+1. find out pm2 cannot accept .env
+2. chromium exec path maybe difference. which chromium and copy path to generate.js launch
+3. pm2 cannot use with root. Resolved by add --no-sanbox args
 
 ## Run
+### Curl
+#### Start server
+```bash
+yarn start
 ```
-curl -0 -o output.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8080
+
+#### Run Script
+```bash
+curl -0 -Lo output.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8082
+```
+
+### API
+```javascript
+const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+  "customerName": "Chan Tai Man",
+  "authorizedPerson": "John Doe",
+  "passportId": "A1234567",
+  "receiptNo": "123456",
+  "dateTime": 1674550554469,
+  "telephone": "(852) 9123 4567",
+  "fax": "(852) 9123 4567",
+  "email": "testing@cnr.ai",
+  "address": "Address line1\nLine 2 UK",
+  "openingHours": "0000-2359"
+});
+
+const requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:8082", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 ```
 
 # Job Description
