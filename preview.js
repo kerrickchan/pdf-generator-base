@@ -1,12 +1,22 @@
 const template = require('lodash.template');
 const { readFileSync } = require('fs');
-const { transformDateTime } = require('./transform');
+const { transformTemplate, transformDate, transformInput, transformParagraph, transformDuration, calcFee } = require('./transform');
 
-function preview(templateFile, data = JSON.parse(readFileSync(__dirname + '/input.json', { encoding: 'utf8' }))) {
-  const content = readFileSync(templateFile, { encoding: 'utf8', flag: 'r' });
+function preview(templateName, data) {
+  if (!data) {
+    data = JSON.parse(readFileSync(transformInput(templateName), { encoding: 'utf8' }))
+  }
+
+  const content = readFileSync(transformTemplate(templateName), { encoding: 'utf8', flag: 'r' });
   const merger = template(content);
 
-  data.dateTime = transformDateTime(data.dateTime);
+  // value check and transform
+  data.dateTime ? data.dateTime = transformDate(data.dateTime) : null;
+  data.address ? data.address = transformParagraph(data.address) : null;
+  data.checkin ? data.checkin = transformDate(data.checkin) : null;
+  !data.estimatedFee ? data.estimatedFee = calcFee(data?.hourDuration || 1) : null;
+  data.hourDuration ? data.hourDuration = transformDuration(data.hourDuration) : null;
+
   return merger(data);
 }
 

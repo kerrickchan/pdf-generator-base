@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <style>
+    .paper {
+      position: relative;
+      border-width: 1px;
+      border-style: dotted;
+      width: 21cm;
+      height: 29.7cm;
+      background: white;
+      display: grid;
+      grid-template-rows: 1fr 8fr 1fr;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    @media print {
+      .paper {
+        margin: 0;
+        padding: 16px;
+        width: 100vw;
+        height: 100vh;
+        border-width: 0;
+        box-shadow: 0;
+      }
+    }
+
+    .contact {
+      width: calc(100% - 32px);
+      top: 16px;
+    }
+
+    .contact td {
+      width: 33.33%;
+    }
+
+    .title {
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+
+    .content {
+    }
+
+    .content td {
+      width: 25%;
+    }
+
+    .information {
+      margin: auto;
+      width: 80%;
+    }
+
+    .estimated {
+    }
+
+    .chargs {
+    }
+
+    .hint {
+    }
+
+    .remark {
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paper">
+    <header>
+      <table class="contact">
+        <tbody>
+          <tr>
+            <td>Telephone: <%= telephone %></td>
+            <td>Address:</td>
+            <td>No. <%= receiptNo %></td>
+          </tr>
+          <tr>
+            <td>Facsimile: <%= fax %></td>
+            <td rowspan="2"><%= address %></td>
+          </tr>
+          <tr>
+            <td>E-mail: <%= email %></td>
+            <td>Date: <%= dateTime %></td>
+          </tr>
+        </tbody>
+      </table>
+    </header>
+
+    <main class="content">
+      <h1 class="title">BAGGAGE RECEIPT</h1>
+
+      <table class="information">
+        <tbody>
+          <tr><td>Service Location: </td><td><%= location %></td><td>Check-In Time: </td><td><%= checkin %></td></tr>
+          <tr><td>Customer: </td><td><%= customerName %></td><td>Transaction No.</td><td><%= transactionNo %></td></tr>
+          <tr><td>Passport/HKID: </td><td><%= passportId %></td><td>Total No. of Bags:</td><td><%= bagNo %></td></tr>
+        </tbody>
+      </table>
+
+      <p class="estimated">
+        Estimated Fee: HKD <%= estimatedFee %> for <%= hourDuration %> (Subject to actual storage time)
+      </p>
+
+      <p class="charge">
+        取行李時付款<br>
+        每件一小時 HKD$12<br>
+        不足一小時世接一小時計算<br>
+        奇存特間若超過 11小時每件行李將按整天港幣$140 收取
+      </p>
+
+      <p class="hint">
+        Not liable for any damage.<br>
+        行李如有損壞，本公司恕不負责<br>
+        I/We accept the Terms & Conditions of Service
+      </p>
+
+      <p class="remark"><%= remark %></p>
+    </main>
+
+    <footer>
+    </footer>
+  </div>
+</body>
+
+</html>

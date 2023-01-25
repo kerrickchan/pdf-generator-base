@@ -5,13 +5,13 @@ const generate = require('./generate');
 
 const { PORT = 8081 } = process.env;
 const app = express();
-const templateFile = 'template.html';
+const defaultTemplate = 'prove';
 
 app.use(express.json());
 
-app.get('/', (req, res) => res.send(preview(templateFile)));
+app.get('/', (req, res) => res.send(preview(req.query['template'] || defaultTemplate)));
 app.post('/', (req, res) => {
-  generate(preview(templateFile, req.body))
+  generate(preview(req.query['template'] || defaultTemplate, req.body))
     .then(data => {
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Length', data.length);
