@@ -33,7 +33,7 @@ yarn start
 
 #### Run Script
 ```bash
-curl -0 -Lo output.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8082
+curl -0 -Lo output.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8080
 ```
 
 ### API
@@ -61,7 +61,7 @@ const requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost:8082", requestOptions)
+fetch("http://localhost:8080", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));

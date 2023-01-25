@@ -1,9 +1,8 @@
-require('dotenv').config();
 const express = require('express');
 const preview = require('./preview');
 const generate = require('./generate');
 
-const { PORT = 8081 } = process.env;
+const { PORT = 8080 } = process.env;
 const app = express();
 const defaultTemplate = 'prove';
 
