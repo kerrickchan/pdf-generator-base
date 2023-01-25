@@ -90,5 +90,3 @@ The above command will open the output.pdf using Apple's preview or Google Chrom
 4. `template.css`
 5. sample output PDF 
 6. Other files
-
-Code server will be provided for development.
