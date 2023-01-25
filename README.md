@@ -22,7 +22,7 @@ sudo apt-get install fonts-noto-cjk
 ### PM2 Could not find Chromium Problem
 1. find out pm2 cannot accept .env
 2. chromium exec path maybe difference. which chromium and copy path to generate.js launch
-3. pm2 cannot use with root. Resolved by add --no-sanbox args
+3. pm2 cannot use with root. Resolved by add --no-sandbox args
 
 ## Run
 ### Curl
