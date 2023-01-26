@@ -5,10 +5,11 @@
   <style>
     .paper {
       position: relative;
-      border-width: 1px;
+      box-sizing: border-box;
+      border-width: 0px;
       border-style: dotted;
-      width: 29.7cm;
-      height: 21cm;
+      width: 297mm;
+      height: 209mm;
       background: white;
       display: grid;
       grid-template-rows: 1fr 9fr 0fr;
@@ -17,7 +18,7 @@
     }
 
     @page {
-      size: A4 landscape
+      size: A4 landscape;
     }
 
     @media print {
@@ -27,6 +28,7 @@
         width: 100vw;
         height: 0vh;
         border-width: 0;
+        border-style: none;
         box-shadow: 0;
       }
     }

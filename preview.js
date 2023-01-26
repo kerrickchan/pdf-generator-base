@@ -10,11 +10,25 @@ function preview(templateName, data) {
   const content = readFileSync(transformTemplate(templateName), { encoding: 'utf8', flag: 'r' });
   const merger = template(content);
 
-  // value check and transform
-  data.dateTime ? data.dateTime = transformDate(data.dateTime) : null;
-  data.address ? data.address = transformParagraph(data.address) : null;
-  data.checkInTs ? data.checkInTs = transformDateTime(data.checkInTs) : null;
-  !data.fee ? data.fee = calcFee(data?.hourDuration || 1) : null;
+  // transform for template, baggag-receipt
+  if (data.dateTime) data.dateTime = transformDate(data.dateTime);
+  if (data.address) data.address = transformParagraph(data.address);
+
+  // transformed for baggage-receipt
+  if (data.checkInTs) data.checkInTs = transformDateTime(data.checkInTs);
+  if (!data.fee) data.fee = calcFee(data?.hourDuration || 1);
+
+  // transformed for delivery-manifest
+  if (data.date) data.date = transformDate(data.date);
+  if (data.data && Array.isArray(data.data)) {
+    data.data = data.data.map((v) => {
+      if (v.registerDateTime) {
+        v.registerDateTime = transformDateTime(v.registerDateTime);
+      }
+
+      return v;
+    })
+  }
 
   return merger(data);
 }

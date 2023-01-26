@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <style>
+    .paper {
+      position: relative;
+      border-width: 0px;
+      border-style: dotted;
+      width: 297mm;
+      height: 209mm;
+      background: white;
+      display: grid;
+      grid-template-rows: 1fr 9fr 0fr;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    @page {
+      size: A4 landscape;
+    }
+
+    @media print {
+      .paper {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 1vh;
+        border-width: 0;
+        border-style: none;
+        box-shadow: 0;
+      }
+    }
+
+    .content {
+      width: calc(100% - 32px);
+      top: 16px;
+    }
+
+    .content td {
+      width: 33.33%;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .content td {
+      width: 25%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paper">
+    <header>
+      <table>
+        <thead>
+          <tr>
+            <td>Telephone: <%= telephone %></td>
+            <td><h1 class="title">Baggage Delivery Manifest</h1></td>
+            <td>DATE: <%= dateTime %></td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </header>
+    <main>
+    </main>
+  </div>
+</body>
+
+</html>

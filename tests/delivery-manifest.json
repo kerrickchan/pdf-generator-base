@@ -1,0 +1,27 @@
+{
+  "name": "HKIA Baggage Storage and Delivery Services",
+  "title": "Baggage Delivery Manifest",
+  "date": 1674550554469,
+  "data": [
+    {
+      "no": 1,
+      "serviceType": "Baggage Delivery",
+      "location": "West Kowloon Station",
+      "registerDateTime": 1674550554469,
+      "baggageTagNumber": "XXXXXXX",
+      "baggageReceiptNumber": "XXXXXX",
+      "registeredBy": "Chan Tai Man",
+      "remarks": null
+    },
+    {
+      "no": 2,
+      "serviceType": "Baggage Delivery",
+      "location": "West Kowloon Station",
+      "registerDateTime": 1674550554469,
+      "baggageTagNumber": "XXXXXXX",
+      "baggageReceiptNumber": "XXXXXX",
+      "registeredBy": "Chan Tai Man",
+      "remarks": null
+    }
+  ]
+}

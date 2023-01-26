@@ -33,7 +33,7 @@ yarn start
 
 #### Run Script
 ```bash
-curl -0 -Lo output.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8080
+curl -0 -Lo baggage-receipt.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8080/api/v1/pdf/baggage-receipt
 ```
 
 ### API
