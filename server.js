@@ -4,13 +4,14 @@ const generate = require('./generate');
 
 const { PORT = 8080 } = process.env;
 const app = express();
-const defaultTemplate = 'prove';
+const defaultTemplate = 'template';
 
 app.use(express.json());
 
-app.get('/', (req, res) => res.send(preview(req.query['template'] || defaultTemplate)));
-app.post('/', (req, res) => {
-  generate(preview(req.query['template'] || defaultTemplate, req.body))
+const router = express.Router();
+router.get('/:template', (req, res) => res.send(preview(req.params['template'] || defaultTemplate)));
+router.post('/:template', (req, res) => {
+  generate(preview(req.params['template'] || defaultTemplate, req.body))
     .then(data => {
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Length', data.length);
@@ -18,6 +19,8 @@ app.post('/', (req, res) => {
     })
     .catch(err => console.error(err));
 })
+
+app.use('/api/v1/pdf', router);
 
 app.listen(PORT, () => {
   console.log(`Service running on port ${PORT}`);

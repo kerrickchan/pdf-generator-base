@@ -1,6 +1,6 @@
 const template = require('lodash.template');
 const { readFileSync } = require('fs');
-const { transformTemplate, transformDate, transformInput, transformParagraph, transformDuration, calcFee } = require('./transform');
+const { transformTemplate, transformDate, transformInput, transformParagraph, transformDuration, calcFee, transformDateTime } = require('./transform');
 
 function preview(templateName, data) {
   if (!data) {
@@ -13,9 +13,8 @@ function preview(templateName, data) {
   // value check and transform
   data.dateTime ? data.dateTime = transformDate(data.dateTime) : null;
   data.address ? data.address = transformParagraph(data.address) : null;
-  data.checkin ? data.checkin = transformDate(data.checkin) : null;
-  !data.estimatedFee ? data.estimatedFee = calcFee(data?.hourDuration || 1) : null;
-  data.hourDuration ? data.hourDuration = transformDuration(data.hourDuration) : null;
+  data.checkInTs ? data.checkInTs = transformDateTime(data.checkInTs) : null;
+  !data.fee ? data.fee = calcFee(data?.hourDuration || 1) : null;
 
   return merger(data);
 }
