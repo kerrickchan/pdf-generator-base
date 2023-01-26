@@ -20,6 +20,10 @@ function transformDate(dateTime, TZ = "Asia/Hong_Kong") {
   return dayjs(dateTime).tz(TZ).format('DD/MM/YYYY');
 }
 
+function transformTime(dateTime, TZ = "Asia/Hong_Kong") {
+  return dayjs(dateTime).tz(TZ).format('HH:mm');
+}
+
 function transformDateTime(dateTime, TZ = "Asia/Hong_Kong") {
   return dayjs(dateTime).tz(TZ).format('DD/MM/YYYY HH:mm');
 }
@@ -29,7 +33,7 @@ function transformDuration(hourDuration) {
   return `${Math.floor(duration.hours() / 24)} Days ${duration.hours() % 24} Hours`;
 }
 
-function transformParagraph(valueAllowNewline) {
+function transformParagraph(valueAllowNewline = '') {
   return valueAllowNewline.replace(/\n/g, '<br>');
 }
 
@@ -43,6 +47,7 @@ module.exports = {
   transformTemplate,
   transformInput,
   transformDate,
+  transformTime,
   transformDateTime,
   transformDuration,
   transformParagraph,

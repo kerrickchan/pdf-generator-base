@@ -5,13 +5,14 @@
   <style>
     .paper {
       position: relative;
+      box-sizing: border-box;
       border-width: 0px;
       border-style: dotted;
       width: 297mm;
       height: 209mm;
       background: white;
       display: grid;
-      grid-template-rows: 1fr 9fr 0fr;
+      grid-template-rows: 0fr 1fr 0fr;
       margin: 0 auto;
       padding: 16px;
     }
@@ -28,25 +29,45 @@
         height: 1vh;
         border-width: 0;
         border-style: none;
-        box-shadow: 0;
       }
     }
 
-    .content {
-      width: calc(100% - 32px);
-      top: 16px;
+    table {
+      width: 100%;
+      box-sizing: border-box;
+      border-width: 2px;
+      border-style: solid;
+      word-wrap: break-word;
     }
 
-    .content td {
-      width: 33.33%;
+    thead tr:first-child {
+      height: 5rem;
     }
 
-    .title {
+    thead tr:nth-child(2) th {
+      display: none;
+      min-width: 5rem;
+    }
+
+    thead tr:first-child th:nth-child(1), thead tr:first-child th:nth-child(2) {
       text-align: center;
     }
 
-    .content td {
-      width: 25%;
+    tbody tr {
+      height: 2rem;
+    }
+
+    th, td {
+      border-width: 2px;
+      border-style: solid;
+    }
+
+    thead tr th:first-child, tbody tr td:nth-child(2) {
+      max-width: 10em;
+    }
+
+    .data:not(:first-child) {
+      margin-top: 10rem;
     }
   </style>
 </head>
@@ -57,17 +78,57 @@
       <table>
         <thead>
           <tr>
-            <td>Telephone: <%= telephone %></td>
-            <td><h1 class="title">Baggage Delivery Manifest</h1></td>
-            <td>DATE: <%= dateTime %></td>
+            <th colspan="2"><%= name %></th>
+            <th colspan="6"><%= title %></th>
+            <th colspan="1">DATE: <%= date %></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
-        <tbody>
-        </tbody>
       </table>
     </header>
     <main>
+      <% for(let p = 0; p < data.length; p += 1) { %>
+        <table class="data">
+          <tbody>
+            <tr>
+              <td>No.</td>
+              <td>Service Type</td>
+              <td>Location</td>
+              <td>Date</td>
+              <td>Register time</td>
+              <td>Baggage Tag Number</td>
+              <td>Baggage Receipt Number</td>
+              <td>Register by</td>
+              <td>Remark</td>
+            </tr>
+              <% for(let i = 0; i < data[p].length; i += 1) { %>
+                <tr>
+                  <td><%- data[p][i].no %></td>
+                  <td><%- data[p][i].serviceType %></td>
+                  <td><%- data[p][i].location %></td>
+                  <td><%- data[p][i].registerDate %></td>
+                  <td><%- data[p][i].registerTime %></td>
+                  <td><%- data[p][i].baggageTagNumber %></td>
+                  <td><%- data[p][i].baggageReceiptNumber %></td>
+                  <td><%- data[p][i].registeredBy %></td>
+                  <td><%- data[p][i].remarks %></td>
+                </tr>
+              <% } %>
+          </tbody>
+        </table>
+      <% } %>
     </main>
+    <footer></footer>
   </div>
 </body>
 

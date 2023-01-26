@@ -1,6 +1,6 @@
 const template = require('lodash.template');
 const { readFileSync } = require('fs');
-const { transformTemplate, transformDate, transformInput, transformParagraph, transformDuration, calcFee, transformDateTime } = require('./transform');
+const { transformTemplate, transformDate, transformTime, transformInput, transformParagraph, transformDateTime } = require('./transform');
 
 function preview(templateName, data) {
   if (!data) {
@@ -16,18 +16,32 @@ function preview(templateName, data) {
 
   // transformed for baggage-receipt
   if (data.checkInTs) data.checkInTs = transformDateTime(data.checkInTs);
-  if (!data.fee) data.fee = calcFee(data?.hourDuration || 1);
 
   // transformed for delivery-manifest
   if (data.date) data.date = transformDate(data.date);
   if (data.data && Array.isArray(data.data)) {
-    data.data = data.data.map((v) => {
+    const items = data.data.map((v) => {
       if (v.registerDateTime) {
-        v.registerDateTime = transformDateTime(v.registerDateTime);
+        v.registerDate = transformDate(v.registerDateTime);
+        v.registerTime = transformTime(v.registerDateTime);
       }
+
+      v.remark = transformParagraph(v.remark);
 
       return v;
     })
+
+    const itemFisrtPage = data.itemFisrtPage || 18;
+    const itemPerPage = data.itemPerPage || 22;
+    data.data = items.reduce((pages, item, index) => {
+      const currentPage = index < itemFisrtPage ? 0 : 1 + Math.floor((index - itemFisrtPage) / itemPerPage);
+      if (!pages[currentPage]) {
+        pages[currentPage] = [];
+      }
+
+      pages[currentPage].push(item);
+      return pages;
+    }, [])
   }
 
   return merger(data);
