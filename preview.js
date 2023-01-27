@@ -1,6 +1,6 @@
 const template = require('lodash.template');
 const { readFileSync } = require('fs');
-const { transformTemplate, transformDate, transformTime, transformInput, transformParagraph, transformDateTime } = require('./transform');
+const { transformTemplate, transformDate, transformTime, transformInput, transformParagraph, transformDateTime, transformCharge, transformField } = require('./transform');
 
 function preview(templateName, data) {
   if (!data) {
@@ -46,6 +46,15 @@ function preview(templateName, data) {
 
   // transform for acknowledgement
   if (data.signatureDate) data.signatureDate = transformDate(data.signatureDate);
+
+  // transform for adjustment-form
+  if (data.dateOfBagIn) data.dateOfBagIn = transformDate(data.dateOfBagIn);
+  if (data.dateOfBagOut) data.dateOfBagOut = transformDate(data.dateOfBagOut);
+  if (data.originalCharges) data.originalCharges = transformCharge(data.originalCharges);
+  if (data.actualCharges) data.actualCharges = transformCharge(data.actualCharges);
+  if ('waiveMinutes' in data) data.waiveMinutes = transformField(data.waiveMinutes, 3);
+  if ('Other' in data) data.Other = transformField(data.Other, 34);
+  if (data.customerDate) data.customerDate = transformDate(data.customerDate);
 
   return merger(data);
 }

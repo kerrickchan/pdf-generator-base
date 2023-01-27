@@ -37,6 +37,14 @@ function transformParagraph(valueAllowNewline = '') {
   return valueAllowNewline.replace(/\n/g, '<br>');
 }
 
+function transformField(value, count = 1, repeater = '_') {
+  return value ? `<u>${value}</u>` : repeater.repeat(count);
+}
+
+function transformCharge(price) {
+  return `${price['currency']} ${price['amount'].toFixed(2)}`;
+}
+
 function calcFee(hourDuration, bagNo = 1) {
   if (hourDuration > 11) return 140 * bagNo; // HKD
   
@@ -51,5 +59,7 @@ module.exports = {
   transformDateTime,
   transformDuration,
   transformParagraph,
+  transformField,
+  transformCharge,
   calcFee,
 }

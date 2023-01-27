@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .paper {
+      position: relative;
+      border-width: 0px;
+      border-style: dotted;
+      width: 210mm;
+      height: 297mm;
+      background: white;
+      display: grid;
+      grid-template-rows: 1fr 11fr 0fr;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    @media print {
+      .paper {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        border-width: 0;
+      }
+    }
+    
+    .deliveree {
+      text-align: right;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .title {
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    .information td:nth-child(1) {
+      width: 20%;
+    }
+    .information td:nth-child(2) {
+      width: 30%;
+    }
+
+    .reason thead th {
+      text-align: left;
+      text-decoration: underline;
+    }
+    .reason td {
+      padding: 1rem;
+    }
+    .reason tbody td:first-child {
+      width: 25%;
+      text-align: center;
+    }
+    .reason tbody td:last-child {
+      width: 75%;
+    }
+
+    .support td {
+      width: 25%;
+    }
+    .support td:first-child {
+      width: 50%;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .sign td {
+      width: 33.33%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paper">
+    <header>
+      <p class="deliveree">
+        <%= deliveryServiceName %>
+      </p>
+    </header>
+
+    <main class="content">
+      <h1 class="title"><%= sectionTitle %></h1>
+
+      <table class="information">
+        <tbody>
+          <tr><td>Date of bag in:</td><td><%= dateOfBagIn %></td><td>Receipt number:</td><td><%= receiptNumber %></td></tr>
+          <tr><td>Date of bag out:</td><td><%= dateOfBagOut %></td><td>Original charges:</td><td><%= originalCharges %></td></tr>
+          <tr><td></td><td></td><td>Actual charges:</td><td><%= actualCharges %></td></tr>
+        </tbody>
+      </table>
+
+      <table class="reason">
+        <thead>
+          <tr><th colspan="2">Reason for Adjustment</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input type="checkbox" id="waiveMinutes" <% if(waiveMinutes && !waiveMinutes.includes("_")) { %> checked <% } %> /></td><td><label for="waiveMinutes">* Customer Requests to waive <%= waiveMinutes %> mins overtime</label></td></tr>
+          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /></td><td><label for="Other">* Other <%= Other %></label></td></tr>
+        </tbody>
+      </table>
+
+      <table class="support">
+        <tbody>
+          <tr>
+            <td>Supporting document attached</td>
+            <td><input type="checkbox" id="yes"/><label for="yes">Yes</label></td>
+            <td><input type="checkbox" id="no"/><label for="no">No</label></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="sign">
+        <tbody>
+          <tr>
+            <td>___________________</td>
+            <td><u><%= customerName %></u></td>
+            <td><u><%= customerDate %></u></td>
+          </tr>
+          <tr>
+            <td>Customer Signature</td>
+            <td>Customer Name</td>
+            <td>Date</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <footer>
+    </footer>
+  </div>
+</body>
+
+</html>
