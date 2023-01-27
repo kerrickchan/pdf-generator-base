@@ -14,10 +14,10 @@ function preview(templateName, data) {
   if (data.dateTime) data.dateTime = transformDate(data.dateTime);
   if (data.address) data.address = transformParagraph(data.address);
 
-  // transformed for baggage-receipt
+  // transform for baggage-receipt
   if (data.checkInTs) data.checkInTs = transformDateTime(data.checkInTs);
 
-  // transformed for delivery-manifest
+  // transform for delivery-manifest
   if (data.date) data.date = transformDate(data.date);
   if (data.data && Array.isArray(data.data)) {
     const items = data.data.map((v) => {
@@ -43,6 +43,9 @@ function preview(templateName, data) {
       return pages;
     }, [])
   }
+
+  // transform for acknowledgement
+  if (data.signatureDate) data.signatureDate = transformDate(data.signatureDate);
 
   return merger(data);
 }

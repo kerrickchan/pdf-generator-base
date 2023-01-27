@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <style>
+    .paper {
+      position: relative;
+      border-width: 0px;
+      border-style: dotted;
+      width: 210mm;
+      height: 297mm;
+      background: white;
+      display: grid;
+      grid-template-rows: 1fr 11fr 0fr;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    @media print {
+      .paper {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        border-width: 0;
+      }
+    }
+    
+    .deliveree {
+      text-align: right;
+    }
+    
+    .title {
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .content {
+      border-width: 2px;
+      border-style: double;
+      height: 85%;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sign {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .sign tr td:nth-child(2) {
+      width: 8rem;
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    .attachment {
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 36rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paper">
+    <header>
+      <p class="deliveree">
+        <%= deliveryAgentCompanyName %>
+      </p>
+    </header>
+
+    <main>
+      <h1 class="title">Sign for Acceptance of Received Baggage</h1>
+
+      <div class="content">
+        <p class="claim">
+          I <u><%= authorizedPersonName %></u> (Authorized Person) received <u><%= numBags %></u> baggage which refer to the Receipt no. <u><%= receiptNumber %></u> and confirmed the baggage without any dificiency.<br>
+          Contact method (if necessary) <u><%= contactMethod %></u>
+        </p>
+
+        <table class="sign">
+          <tbody>
+            <tr>
+              <td>Signature:</td>
+              <td>____________</td>
+            </tr>
+            <tr>
+              <td>Date:</td>
+              <td><%= signatureDate %></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p class="attachment">
+          Invoice Attachment
+        </p>
+      </div>
+    </main>
+
+    <footer>
+    </footer>
+  </div>
+</body>
+
+</html>
