@@ -56,6 +56,9 @@ function preview(templateName, data) {
   if ('Other' in data) data.Other = transformField(data.Other, 34);
   if (data.customerDate) data.customerDate = transformDate(data.customerDate);
 
+  // transform for void-form
+  if ('otherReason' in data) data.otherReason = transformField(data.otherReason, 34);
+
   return merger(data);
 }
 

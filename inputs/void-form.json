@@ -1,0 +1,12 @@
+{
+  "deliveryServiceName": "HKIA Baggage Storage and Delivery Services",
+  "sectionTitle": "Void Application Form",
+  "dateOfBagIn": 1674550554469,
+  "dateOfBagOut": 1674788979452,
+  "receiptNumber": "R220209270001",
+  "originalCharges": { "currency": "HKD", "amount": 34.56 },
+  "actualCharges": { "currency": "HKD", "amount": 12.34 },
+  "otherReason": null,
+  "customerName": "Chan Tai Man",
+  "customerDate": 1674816198501
+}
