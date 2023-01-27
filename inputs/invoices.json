@@ -1,0 +1,54 @@
+{
+  "airportName": "Hong Kong International Airport",
+  "shopName": "Level 5, Shop 008, Terminal 1",
+  "staffNAME": "Betty Chan",
+  "workStation": "PC04",
+  "baggageReceipt": "R202201220451",
+  "checkInTime": 1674550554469,
+  "checkOutTime": 1674550554469,
+  "paymentLockedOn": 1674550554469,
+  "numBags": 5,
+  "tariffType": "STD1",
+  "chargePerios":"4 Hours",
+  "amountTableData": {
+    "tableHeaders": [
+      { "id": 1, "name": "Bags" },
+      { "id": 2, "name": "Tariff Type" },
+      { "id": 3, "name": "Charge Period" },
+      { "id": 4, "name": "Rate" }
+    ],
+    "tableData": [
+      {
+        "id": 1,
+        "deductedAmountType": "Gross Amount",
+        "currencyCode": "HKD",
+        "deductableAmount": "$240"
+      },
+      {
+        "id": 2,
+        "deductedAmountType": "Less Disc/Adjust",
+        "currencyCode": "HKD",
+        "deductableAmount": "$240"
+      },
+      {
+        "id": 3,
+        "deductedAmountType": "Net Amount",
+        "currencyCode": "HKD",
+        "deductableAmount": "$240"
+      },
+      {
+        "id": 4,
+        "deductedAmountType": "Payment Method",
+        "transactionMode": "Cash",
+        "currencyCode": "HKD",
+        "deductableAmount": "$240"
+      },
+      {
+        "id": 5,
+        "deductedAmountType": "Change",
+        "currencyCode": "HKD",
+        "deductableAmount": "$00"
+      }
+    ]
+  }
+}

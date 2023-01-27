@@ -17,6 +17,22 @@ function preview(templateName, data) {
   // transform for baggage-receipt
   if (data.checkInTs) data.checkInTs = transformDateTime(data.checkInTs);
 
+  // transform for invoice
+  if (data.airportName) data.airportName = transformParagraph(data.airportName);
+  if (data.shopName) data.shopName = transformParagraph(data.shopName);
+  if (data.checkInTime) {
+    data.checkInTimeDate = transformDate(data.checkInTime);
+    data.checkInTimeTime = transformTime(data.checkInTime);
+  }
+  if (data.checkOutTime) {
+    data.checkOutTimeDate = transformDate(data.checkOutTime);
+    data.checkOutTimeTime = transformTime(data.checkOutTime);
+  }
+  if (data.paymentLockedOn) {
+    data.paymentLockedOnDate = transformDate(data.paymentLockedOn);
+    data.paymentLockedOnTime = transformTime(data.paymentLockedOn);
+  }
+
   // transform for delivery-manifest
   if (data.date) data.date = transformDate(data.date);
   if (data.data && Array.isArray(data.data)) {

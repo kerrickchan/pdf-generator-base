@@ -111,19 +111,19 @@
               <td>Register by</td>
               <td>Remark</td>
             </tr>
-              <% for(let i = 0; i < data[p].length; i += 1) { %>
-                <tr>
-                  <td><%- data[p][i].no %></td>
-                  <td><%- data[p][i].serviceType %></td>
-                  <td><%- data[p][i].location %></td>
-                  <td><%- data[p][i].registerDate %></td>
-                  <td><%- data[p][i].registerTime %></td>
-                  <td><%- data[p][i].baggageTagNumber %></td>
-                  <td><%- data[p][i].baggageReceiptNumber %></td>
-                  <td><%- data[p][i].registeredBy %></td>
-                  <td><%- data[p][i].remarks %></td>
-                </tr>
-              <% } %>
+            <% for(let i = 0; i < data[p].length; i += 1) { %>
+              <tr>
+                <td><%- data[p][i].no %></td>
+                <td><%- data[p][i].serviceType %></td>
+                <td><%- data[p][i].location %></td>
+                <td><%- data[p][i].registerDate %></td>
+                <td><%- data[p][i].registerTime %></td>
+                <td><%- data[p][i].baggageTagNumber %></td>
+                <td><%- data[p][i].baggageReceiptNumber %></td>
+                <td><%- data[p][i].registeredBy %></td>
+                <td><%- data[p][i].remarks %></td>
+              </tr>
+            <% } %>
           </tbody>
         </table>
       <% } %>

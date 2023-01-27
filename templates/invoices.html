@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <style>
+    .paper {
+      position: relative;
+      border-width: 0px;
+      border-style: dotted;
+      width: 210mm;
+      height: 297mm;
+      background: white;
+      display: grid;
+      grid-template-rows: 1fr 11fr 0fr;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    @media print {
+      .paper {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        border-width: 0;
+      }
+    }
+
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .baggage {
+    }
+
+    .datetime {
+    }
+
+    .charge tr:last-child td {
+      padding-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paper">
+    <header>
+      <table>
+        <tbody>
+          <tr><td>LEFT LUGGAGE</td></tr>
+          <tr><td><%= airportName %></td></tr>
+          <tr><td><%= shopName %></td></tr>
+          <tr><td><%- '*'.repeat(20) %></td></tr>
+        </tbody>
+      </table>
+    </header>
+
+    <main>
+      <h1 class="title">Invoice</h1>
+
+      <table class="staff">
+        <tbody>
+          <tr><td>Staff Name: <%= staffNAME %></td><td>WS: <%= workStation %></td></tr>
+        </tbody>
+      </table>
+
+      <p class="baggage">Baggage Receipt: <%= baggageReceipt %></p>
+
+      <table class="datetime">
+        <tbody>
+          <tr><td>Check-In:</td><td><%= checkInTimeDate %></td><td><%= checkInTimeTime %></td></tr>
+          <tr><td>Check-Out:</td><td><%= checkOutTimeDate %></td><td><%= checkOutTimeTime %></td></tr>
+          <tr><td>Payment Locked:</td><td><%= paymentLockedOnDate %></td><td><%= paymentLockedOnTime %></td></tr>
+        </tbody>
+      </table>
+
+      <table class="charge">
+        <tbody>
+          <tr>
+            <% for(let i = 0; i < amountTableData.tableHeaders.length; i += 1) { %>
+              <td><%- amountTableData.tableHeaders[i].name %></td>
+            <% } %>
+          </tr>
+          <tr><td><%= numBags %></td><td><%= tariffType %></td><td><%= chargePerios %></td><td></td><td></td></tr>
+          <% for(let i = 0; i < amountTableData.tableData.length; i += 1) { %>
+            <tr>
+              <td><%- amountTableData.tableData[i].deductedAmountType %></td>
+              <td><%- amountTableData.tableData[i].currencyCode %></td>
+              <td><%- amountTableData.tableData[i].deductableAmount %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </main>
+
+    <footer>
+    </footer>
+  </div>
+</body>
+
+</html>
