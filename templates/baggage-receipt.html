@@ -69,7 +69,15 @@
     .hint {
     }
 
-    .remarks {
+    .remarks ol {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .remarks p {
+      margin: 0;
+      padding: 0;
     }
   </style>
 </head>
@@ -124,7 +132,16 @@
         I/We accept the Terms & Conditions of Service
       </p>
 
-      <p class="remarks"><%= remarks %></p>
+      <!-- <p class="remarks"><%= remarks %></p> -->
+      <div class="remarks">
+        Remarks:
+        <p>For Identification Document No, users requests to include the following options</p>
+        <ol>
+          <li>HKID: last 4 characters (including character in blanket).</li>
+          <li>Passport: last 6 characters.</li>
+          <li>Other: not limited.</li>
+        </ol>
+      </div>
     </main>
 
     <footer>
