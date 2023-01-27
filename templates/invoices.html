@@ -60,7 +60,7 @@
           <tr><td>LEFT LUGGAGE</td></tr>
           <tr><td><%= airportName %></td></tr>
           <tr><td><%= shopName %></td></tr>
-          <tr><td><%- '*'.repeat(20) %></td></tr>
+          <tr><td>********************</td></tr>
         </tbody>
       </table>
     </header>
@@ -70,11 +70,11 @@
 
       <table class="staff">
         <tbody>
-          <tr><td>Staff Name: <%= staffNAME %></td><td>WS: <%= workStation %></td></tr>
+          <tr><td>Staff Name: <%= staffName %></td><td>WS: <%= workstation %></td></tr>
         </tbody>
       </table>
 
-      <p class="baggage">Baggage Receipt: <%= baggageReceipt %></p>
+      <p class="baggage">Baggage Receipt: <%= baggageReceiptNo %></p>
 
       <table class="datetime">
         <tbody>
@@ -87,18 +87,31 @@
       <table class="charge">
         <tbody>
           <tr>
-            <% for(let i = 0; i < amountTableData.tableHeaders.length; i += 1) { %>
-              <td><%- amountTableData.tableHeaders[i].name %></td>
-            <% } %>
+            <td>Bags</td>
+            <td>Tariff Type</td>
+            <td>Charge Period</td>
+            <td>Rate</td>
+            <td></td>
           </tr>
-          <tr><td><%= numBags %></td><td><%= tariffType %></td><td><%= chargePerios %></td><td></td><td></td></tr>
-          <% for(let i = 0; i < amountTableData.tableData.length; i += 1) { %>
+          <tr><td><%= numBags %></td><td><%= tariffType %></td><td><%= chargePeriod %></td><td>HKD</td><td><%= unitRate %></td></tr>
             <tr>
-              <td><%- amountTableData.tableData[i].deductedAmountType %></td>
-              <td><%- amountTableData.tableData[i].currencyCode %></td>
-              <td><%- amountTableData.tableData[i].deductableAmount %></td>
+              <td colspan="3">Gross Amount:</td><td>HKD</td><td><%= grossAmount %></td>
             </tr>
-          <% } %>
+            <tr>
+              <td colspan="3">Less Disc/Adjust:</td><td>HKD</td><td><%= discountAdjustment %></td>
+            </tr>
+            <tr>
+              <td colspan="3">Net Amount:</td><td>HKD</td><td><%= netAmount %></td>
+            </tr>
+            <tr>
+              <td colspan="2">Payment Method:</td><td colspan="3"><%= paymentMethod %></td>
+            </tr>
+            <tr>
+              <td colspan="3"></td><td>HKD</td><td><%= totalAmount %></td>
+            </tr>
+            <tr>
+              <td colspan="3">Change:</td><td>HKD</td><td><%= changeAmount %></td>
+            </tr>
         </tbody>
       </table>
     </main>

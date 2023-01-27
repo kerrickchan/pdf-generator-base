@@ -47,6 +47,10 @@
       width: 100%;
     }
 
+    table td {
+      height: 3rem;
+    }
+
     .information td:nth-child(1) {
       width: 20%;
     }
@@ -127,14 +131,16 @@
       <table class="sign">
         <tbody>
           <tr>
-            <td>___________________</td>
-            <td><u><%= customerName %></u></td>
-            <td><u><%= customerDate %></u></td>
+            <td>Customer Name: <%= customerName %></td>
+            <td>Date: <%= customerDate %></td>
           </tr>
           <tr>
-            <td>Customer Signature</td>
-            <td>Customer Name</td>
-            <td>Date</td>
+            <td>Handled by: <%= handlerName %></td>
+            <td>Date: <%= handledDate %></td>
+          </tr>
+          <tr>
+            <td>Approved by: <%= approverName %><br>(Supervisor)</td>
+            <td>Date: <%= approvedDate %></td>
           </tr>
         </tbody>
       </table>

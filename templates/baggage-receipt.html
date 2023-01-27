@@ -123,7 +123,7 @@
         取行李時付款<br>
         每件一小時 <%= pricePerHour.currency %>$<%= pricePerHour.amount %><br>
         不足一小時也按一小時計算<br>
-        奇存特間若超過11小時每件行李將按整天港幣$140收取
+        寄存特間若超過<%= dailyPrice.minimumHours %>小時每件行李將按整天港幣$<%= dailyPrice.amount %>收取
       </p>
 
       <p class="hint">

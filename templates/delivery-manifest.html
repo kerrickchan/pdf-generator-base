@@ -12,7 +12,7 @@
       height: 209mm;
       background: white;
       display: grid;
-      grid-template-rows: 0fr 1fr 0fr;
+      grid-template-rows: 1fr 10fr 1fr;
       margin: 0 auto;
       padding: 16px;
     }
@@ -63,11 +63,15 @@
     }
 
     thead tr th:first-child, tbody tr td:nth-child(2) {
-      max-width: 10em;
+      max-width: 10rem;
     }
 
     .data:not(:first-child) {
       margin-top: 10rem;
+    }
+
+    .total {
+      bottom: 1rem;
     }
   </style>
 </head>
@@ -128,7 +132,9 @@
         </table>
       <% } %>
     </main>
-    <footer></footer>
+    <footer class="total">
+      <p>Total number of baggages delivery: <%= numBagsDelivery %></p>
+    </footer>
   </div>
 </body>
 

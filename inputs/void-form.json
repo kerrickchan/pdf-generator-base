@@ -8,5 +8,9 @@
   "actualCharges": { "currency": "HKD", "amount": 12.34 },
   "otherReason": null,
   "customerName": "Chan Tai Man",
-  "customerDate": 1674816198501
+  "customerDate": 1674816198501,
+  "handlerName": "ABC",
+  "handledDate": 1674816198501,
+  "approverName": "XYZ",
+  "approvedDate": 1674816198501
 }

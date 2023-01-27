@@ -32,6 +32,19 @@ function preview(templateName, data) {
     data.paymentLockedOnDate = transformDate(data.paymentLockedOn);
     data.paymentLockedOnTime = transformTime(data.paymentLockedOn);
   }
+  data = Object.fromEntries(
+    Object.entries(data).map(([k, v]) => {
+      if (
+        k.includes('Amount') ||
+        k === 'unitRate' ||
+        k === 'discountAdjustment'
+      ) {
+        v = v.toFixed(2);
+      }
+
+      return [k, v];
+    })
+  );
 
   // transform for delivery-manifest
   if (data.date) data.date = transformDate(data.date);
@@ -71,9 +84,12 @@ function preview(templateName, data) {
   if ('waiveMinutes' in data) data.waiveMinutes = transformField(data.waiveMinutes, 3);
   if ('Other' in data) data.Other = transformField(data.Other, 34);
   if (data.customerDate) data.customerDate = transformDate(data.customerDate);
+  if (data.handledDate) data.handledDate = transformDate(data.handledDate);
+  if (data.approvedDate) data.approvedDate = transformDate(data.approvedDate);
 
   // transform for void-form
   if ('otherReason' in data) data.otherReason = transformField(data.otherReason, 34);
+
 
   return merger(data);
 }

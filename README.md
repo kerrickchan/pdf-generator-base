@@ -1,28 +1,37 @@
-# aahk-bsms-pdf
 
 # Setup Guide
 ## Install
-### Node Package
+### Chromium runtime engine
 ```bash
-npm install
+apt install chromium
 ```
-### Chromium Runtime Engine
+### Node package
 ```bash
-sudo apt install chromium
+yarn install
 ```
+### OS font For displaying Chinese characters
+```bash
+apt-get install -y fonts-indic fonts-noto fonts-noto-cjk
+```
+
+### Run All Tests Cases
+The pdf with mapped name will be placed in the tests folder. same name in inputs folder will also be captured for testing
+```bash
+chmod -R 777 src/tests
+cd src/tests
+./all.sh
+```
+
+for example: invoices.sh will import inputs/invoice.json and export invoices.pdf
 
 ## FAQ
-### OS Font For Display Chinese 
-```bash
-sudo apt-get install fonts-indic
-sudo apt-get install fonts-noto
-sudo apt-get install fonts-noto-cjk
-```
+### Why get is empty
+Please be reminded that add api routing path /api/v1/pdf/invoices
 
-### PM2 Could not find Chromium Problem
+### PM2 could not find Chromium problem
 1. find out pm2 cannot accept .env
 2. chromium exec path maybe difference. which chromium and copy path to generate.js launch
-3. pm2 cannot use with root. Resolved by add --no-sandbox args
+3. pm2 cannot use with root. Resolved by add --no-sanbox args
 
 ## Run
 ### Curl
@@ -33,7 +42,7 @@ yarn start
 
 #### Run Script
 ```bash
-curl -0 -Lo baggage-receipt.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8080/api/v1/pdf/baggage-receipt
+curl -0 -Lo output.pdf -H "Content-Type: application/json" -d @input.json -X POST http://localhost:8081/api/v1/pdf/templates
 ```
 
 ### API
@@ -61,7 +70,7 @@ const requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost:8080", requestOptions)
+fetch("http://localhost:8082", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -76,7 +85,7 @@ fetch("http://localhost:8080", requestOptions)
 ## Expected Flow
 ```bash
 $ PORT=8080 node pdf-generator.js &
-$ curl -Lo output.pdf -X POST -H "Content-Type: application/json" -d @input.json http://localhost:8080
+$ curl -Lo output.pdf -X POST -H "Content-Type: application/json" -d @input.json http://localhost:8081
 $ open output.pdf
 ```
 The above command will open the output.pdf using Apple's preview or Google Chrome.
@@ -90,3 +99,5 @@ The above command will open the output.pdf using Apple's preview or Google Chrom
 4. `template.css`
 5. sample output PDF 
 6. Other files
+
+Code server will be provided for development.

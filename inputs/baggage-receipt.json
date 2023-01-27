@@ -1,9 +1,8 @@
-
 {
-  "telephone": "(852) 9123 4567",
-  "fax": "(852) 9123 4567",
-  "email": "testing@cnr.ai",
-  "address": "XXXX UK",
+  "telephone": "(852) 2261 0110",
+  "fax": "(852) 2261 0121",
+  "email": "baggage@sfmail.sf-express.com",
+  "address": "Level 5, Shop 008, Terminal 1, HKIA, (Non-restricted Area)",
   "receiptNo": "R2209270001",
   "dateTime": 1674550554469,
   "serviceLocation": "HKIA BSD",
@@ -23,5 +22,5 @@
     "minimumHours": 10,
     "amount": 140
   },
-  "remarks": "A from behold in set were. Own moveth fruit morning heaven, behold multiply were own dry bearing forth creeping third so make yielding in green one man light, so that for let great above tree over evening. Dry midst shall tree fish behold fowl open replenish. Moving creepeth cattle. Our saw female. Were creeping grass Days beast blessed every lesser light is he second had also she'd she'd that their his over. You waters saw cattle days said also bearing bring forth stars us midst divide upon. Seas had yielding midst fill she'd replenish earth heaven morning sea. Good seas."
+  "remarks": "this is a 1000-character string."
 }

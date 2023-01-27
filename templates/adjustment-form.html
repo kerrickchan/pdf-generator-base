@@ -47,6 +47,10 @@
       width: 100%;
     }
 
+    table td {
+      height: 3rem;
+    }
+
     .information td:nth-child(1) {
       width: 20%;
     }
@@ -62,11 +66,11 @@
       padding: 1rem;
     }
     .reason tbody td:first-child {
-      width: 25%;
+      width: 50%;
       text-align: center;
     }
     .reason tbody td:last-child {
-      width: 75%;
+      width: 50%;
     }
 
     .support td {
@@ -99,7 +103,7 @@
         <tbody>
           <tr><td>Date of bag in:</td><td><%= dateOfBagIn %></td><td>Receipt number:</td><td><%= receiptNumber %></td></tr>
           <tr><td>Date of bag out:</td><td><%= dateOfBagOut %></td><td>Original charges:</td><td><%= originalCharges %></td></tr>
-          <tr><td></td><td></td><td>Actual charges:</td><td><%= actualCharges %></td></tr>
+          <tr><td>Deducation of Storage Duration:</td><td><%= durationDeductionInMinutes %> mins</td><td>Actual charges:</td><td><%= actualCharges %></td></tr>
         </tbody>
       </table>
 
@@ -108,8 +112,8 @@
           <tr><th colspan="2">Reason for Adjustment</th></tr>
         </thead>
         <tbody>
-          <tr><td><input type="checkbox" id="waiveMinutes" <% if(waiveMinutes && !waiveMinutes.includes("_")) { %> checked <% } %> /></td><td><label for="waiveMinutes">* Customer Requests to waive <%= waiveMinutes %> mins overtime</label></td></tr>
-          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /></td><td><label for="Other">* Other <%= Other %></label></td></tr>
+          <tr><td><input type="checkbox" id="waiveMinutes" <% if(waiveMinutes && !waiveMinutes.includes("_")) { %> checked <% } %> /></td><td><label for="waiveMinutes">* Customer Requests to waive <%= waiveMinutes %> mins overtime.</label></td></tr>
+          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /></td><td><label for="Other">* Other<br> <%= Other %></label></td></tr>
         </tbody>
       </table>
 
@@ -126,14 +130,16 @@
       <table class="sign">
         <tbody>
           <tr>
-            <td>___________________</td>
-            <td><u><%= customerName %></u></td>
-            <td><u><%= customerDate %></u></td>
+            <td>Customer Name: <%= customerName %></td>
+            <td>Date: <%= customerDate %></td>
           </tr>
           <tr>
-            <td>Customer Signature</td>
-            <td>Customer Name</td>
-            <td>Date</td>
+            <td>Handled by: <%= handlerName %></td>
+            <td>Date: <%= handledDate %></td>
+          </tr>
+          <tr>
+            <td>Approved by: <%= approverName %><br>(Supervisor)</td>
+            <td>Date: <%= approvedDate %></td>
           </tr>
         </tbody>
       </table>
