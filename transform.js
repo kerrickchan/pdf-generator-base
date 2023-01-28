@@ -16,6 +16,10 @@ function transformInput(inputName) {
   return `${__dirname}/inputs/${inputName}.json`;
 }
 
+function transformNull(value) {
+  return value === null ? 'Nil' : value;
+}
+
 function transformDate(dateTime, TZ = "Asia/Hong_Kong") {
   return dayjs(dateTime).tz(TZ).format('DD/MM/YYYY');
 }
@@ -54,6 +58,7 @@ function calcFee(hourDuration, bagNo = 1) {
 module.exports = {
   transformTemplate,
   transformInput,
+  transformNull,
   transformDate,
   transformTime,
   transformDateTime,

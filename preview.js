@@ -1,6 +1,6 @@
 const template = require('lodash.template');
 const { readFileSync } = require('fs');
-const { transformTemplate, transformDate, transformTime, transformInput, transformParagraph, transformDateTime, transformCharge, transformField } = require('./transform');
+const { transformTemplate, transformNull, transformDate, transformTime, transformInput, transformParagraph, transformDateTime, transformCharge, transformField } = require('./transform');
 
 function preview(templateName, data) {
   if (!data) {
@@ -16,6 +16,7 @@ function preview(templateName, data) {
 
   // transform for baggage-receipt
   if (data.checkInTs) data.checkInTs = transformDateTime(data.checkInTs);
+  if (data.remarks) data.remarks = transformNull(data.remarks);
 
   // transform for invoice
   if (data.airportName) data.airportName = transformParagraph(data.airportName);

@@ -66,11 +66,10 @@
       padding: 1rem;
     }
     .reason tbody td:first-child {
-      width: 50%;
-      text-align: center;
+      width: 25%;
     }
     .reason tbody td:last-child {
-      width: 50%;
+      width: 75%;
     }
 
     .support td {
@@ -113,7 +112,7 @@
         </thead>
         <tbody>
           <tr><td><input type="checkbox" id="waiveMinutes" <% if(waiveMinutes && !waiveMinutes.includes("_")) { %> checked <% } %> /></td><td><label for="waiveMinutes">* Customer Requests to waive <%= waiveMinutes %> mins overtime.</label></td></tr>
-          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /></td><td><label for="Other">* Other<br> <%= Other %></label></td></tr>
+          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /></td><td><label for="Other">* Other <%= Other %></label></td></tr>
         </tbody>
       </table>
 
