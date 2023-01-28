@@ -65,12 +65,6 @@
     .reason td {
       padding: 1rem;
     }
-    .reason tbody td:first-child {
-      width: 10%;
-    }
-    .reason tbody td:last-child {
-      width: 90%;
-    }
 
     .support td {
       width: 25%;
@@ -111,9 +105,9 @@
           <tr><th colspan="2">Reason for void</th></tr>
         </thead>
         <tbody>
-          <tr><td><input type="checkbox" id="reason1" /></td><td><label for="reason1">* Void Reason 1: Customer requests to cancel the transaction.</label></td></tr>
-          <tr><td><input type="checkbox" id="reason2" /></td><td><label for="reason2">* Void Reason 2: Customer requests to change piecess of storage.</label></td></tr>
-          <tr><td><input type="checkbox" id="otherReason" <% if(otherReason && !otherReason.includes("_")) { %> checked <% } %> /></td><td><label for="otherReason">* Others: <%= otherReason %></label></td></tr>
+          <tr><td><input type="checkbox" id="reason1" /><label for="reason1">Void Reason 1: Customer requests to cancel the transaction.</label></td></tr>
+          <tr><td><input type="checkbox" id="reason2" /><label for="reason2">Void Reason 2: Customer requests to change piecess of storage.</label></td></tr>
+          <tr><td><input type="checkbox" id="otherReason" <% if(otherReason && !otherReason.includes("_")) { %> checked <% } %> /><label for="otherReason">Others: <%= otherReason %></label></td></tr>
         </tbody>
       </table>
 

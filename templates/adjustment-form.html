@@ -65,12 +65,6 @@
     .reason td {
       padding: 1rem;
     }
-    .reason tbody td:first-child {
-      width: 25%;
-    }
-    .reason tbody td:last-child {
-      width: 75%;
-    }
 
     .support td {
       width: 25%;
@@ -111,8 +105,8 @@
           <tr><th colspan="2">Reason for Adjustment</th></tr>
         </thead>
         <tbody>
-          <tr><td><input type="checkbox" id="waiveMinutes" <% if(waiveMinutes && !waiveMinutes.includes("_")) { %> checked <% } %> /></td><td><label for="waiveMinutes">* Customer Requests to waive <%= waiveMinutes %> mins overtime.</label></td></tr>
-          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /></td><td><label for="Other">* Other <%= Other %></label></td></tr>
+          <tr><td><input type="checkbox" id="waiveMinutes" <% if(waiveMinutes && !waiveMinutes.includes("_")) { %> checked <% } %> /><label for="waiveMinutes">Customer Requests to waive <%= waiveMinutes %> mins overtime.</label></td></tr>
+          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /><label for="Other">Other <%= Other %></label></td></tr>
         </tbody>
       </table>
 
