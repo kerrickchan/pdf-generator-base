@@ -13,7 +13,7 @@ function transformTemplate(templateName) {
 }
 
 function transformInput(inputName) {
-  return `${__dirname}/inputs/${inputName}.json`;
+  return `${__dirname}/inputs/${inputName}/input.json`;
 }
 
 function transformNull(value) {
