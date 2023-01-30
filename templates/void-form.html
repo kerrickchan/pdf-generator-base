@@ -94,7 +94,7 @@
 
       <table class="information">
         <tbody>
-          <tr><td>Date of bag in:</td><td><%= dateOfBagIn %></td><td>Receipt number:</td><td><%= receiptNumber %></td></tr>
+          <tr><td>Date of bag in:</td><td><%= dateOfBagIn %></td><td>Receipt number:</td><td>[<%= receiptNumber %>]</td></tr>
           <tr><td>Date of bag out:</td><td><%= dateOfBagOut %></td><td>Original charges:</td><td><%= originalCharges %></td></tr>
           <tr><td></td><td></td><td>Actual charges:</td><td><%= actualCharges %></td></tr>
         </tbody>
@@ -105,9 +105,9 @@
           <tr><th colspan="2">Reason for void</th></tr>
         </thead>
         <tbody>
-          <tr><td><input type="checkbox" id="reason1" /><label for="reason1">Void Reason 1: Customer requests to cancel the transaction.</label></td></tr>
-          <tr><td><input type="checkbox" id="reason2" /><label for="reason2">Void Reason 2: Customer requests to change piecess of storage.</label></td></tr>
-          <tr><td><input type="checkbox" id="otherReason" <% if(otherReason && !otherReason.includes("_")) { %> checked <% } %> /><label for="otherReason">Others: <%= otherReason %></label></td></tr>
+          <tr><td><input type="checkbox" id="reason1" <% if(reason1) { %> checked <% } %> /><label for="reason1">&emsp;* Void Reason 1: Customer requests to cancel the transaction.</label></td></tr>
+          <tr><td><input type="checkbox" id="reason2" <% if(reason2) { %> checked <% } %> /><label for="reason2">&emsp;* Void Reason 2: Customer requests to change pieces of storage.</label></td></tr>
+          <tr><td><input type="checkbox" id="otherReason" <% if(otherReason && !otherReason.includes("_")) { %> checked <% } %> /><label for="otherReason">&emsp;Others: <%= otherReason %></label></td></tr>
         </tbody>
       </table>
 

@@ -89,7 +89,21 @@ function preview(templateName, data) {
   if (data.approvedDate) data.approvedDate = transformDate(data.approvedDate);
 
   // transform for void-form
-  if ('otherReason' in data) data.otherReason = transformField(data.otherReason, 34);
+  if ('reason1' in data) {
+    data.reason1 = true;
+    data.reason2 = false;
+    data.otherReason = transformField(data.otherReason, 34);
+  }
+  if ('reason2' in data) {
+    data.reason1 = false;
+    data.reason2 = true;
+    data.otherReason = transformField(data.otherReason, 34);
+  }
+  if ('otherReason' in data) {
+    data.reason1 = false;
+    data.reason2 = false;
+    data.otherReason = transformField(data.otherReason, 34);
+  }
 
 
   return merger(data);

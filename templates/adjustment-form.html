@@ -94,7 +94,7 @@
 
       <table class="information">
         <tbody>
-          <tr><td>Date of bag in:</td><td><%= dateOfBagIn %></td><td>Receipt number:</td><td><%= receiptNumber %></td></tr>
+          <tr><td>Date of bag in:</td><td><%= dateOfBagIn %></td><td>Receipt number:</td><td>[<%= receiptNumber %>]</td></tr>
           <tr><td>Date of bag out:</td><td><%= dateOfBagOut %></td><td>Original charges:</td><td><%= originalCharges %></td></tr>
           <tr><td>Deducation of Storage Duration:</td><td><%= durationDeductionInMinutes %> mins</td><td>Actual charges:</td><td><%= actualCharges %></td></tr>
         </tbody>
@@ -105,8 +105,8 @@
           <tr><th colspan="2">Reason for Adjustment</th></tr>
         </thead>
         <tbody>
-          <tr><td><input type="checkbox" id="waiveMinutes" <% if(waiveMinutes && !waiveMinutes.includes("_")) { %> checked <% } %> /><label for="waiveMinutes">Customer Requests to waive <%= waiveMinutes %> mins overtime.</label></td></tr>
-          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /><label for="Other">Other <%= Other %></label></td></tr>
+          <tr><td><input type="checkbox" id="waiveMinutes" <% if(waiveMinutes && !waiveMinutes.includes("_")) { %> checked <% } %> /><label for="waiveMinutes">&emsp;* Customer requests to waive <%= waiveMinutes %> mins overtime.</label></td></tr>
+          <tr><td><input type="checkbox" id="Other" <% if(Other && !Other.includes("_")) { %> checked <% } %> /><label for="Other">&emsp;* Others: <%= Other %></label></td></tr>
         </tbody>
       </table>
 

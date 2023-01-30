@@ -39,8 +39,13 @@
       word-wrap: break-word;
     }
 
-    table, th, td {
+    th, td {
       border: 1px solid;
+    }
+
+    tr.total td {
+      border-width: 0;
+      border-style: none;
     }
 
     thead tr:first-child {
@@ -71,40 +76,25 @@
     .data:not(:first-child) {
       margin-top: 10rem;
     }
-
-    .total {
-      bottom: 1rem;
-    }
   </style>
 </head>
 
 <body>
   <div class="paper">
     <header>
-      <table>
-        <thead>
-          <tr>
-            <th colspan="2"><%= name %></th>
-            <th colspan="6"><%= title %></th>
-            <th colspan="1">DATE: <%= date %></th>
-          </tr>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-      </table>
     </header>
     <main>
       <% for(let p = 0; p < data.length; p += 1) { %>
         <table class="data">
+          <% if (p === 0) { %>
+          <thead>
+            <tr>
+              <th colspan="2"><%= name %></th>
+              <th colspan="6"><%= title %></th>
+              <th colspan="1">DATE: <%= date %></th>
+            </tr>
+          </thead>
+          <% } %>
           <tbody>
             <tr>
               <td>No.</td>
@@ -130,12 +120,16 @@
                 <td><%- data[p][i].remarks %></td>
               </tr>
             <% } %>
+            <% if (p === data.length - 1) { %>
+              <tr class="total">
+                <td colspan="9">Total number of baggages delivery: <%= numBagsDelivery %></td>
+              </tr>
+            <% } %>
           </tbody>
         </table>
       <% } %>
     </main>
-    <footer class="total">
-      <p>Total number of baggages delivery: <%= numBagsDelivery %></p>
+    <footer>
     </footer>
   </div>
 </body>
