@@ -89,7 +89,7 @@
           <% if (p === 0) { %>
           <thead>
             <tr>
-              <th colspan="2"><%= name %></th>
+              <th colspan="3"><%= name %></th>
               <th colspan="6"><%= title %></th>
               <th colspan="1">DATE: <%= date %></th>
             </tr>
@@ -101,10 +101,11 @@
               <td>Service Type</td>
               <td>Location</td>
               <td>Date</td>
-              <td>Register time</td>
+              <td>Check-in time</td>
+              <td>Delivery time</td>
               <td>Baggage Tag Number</td>
               <td>Baggage Receipt Number</td>
-              <td>Register by</td>
+              <td>Handled by</td>
               <td>Remark</td>
             </tr>
             <% for(let i = 0; i < data[p].length; i += 1) { %>
@@ -112,11 +113,12 @@
                 <td><%- data[p][i].no %></td>
                 <td><%- data[p][i].serviceType %></td>
                 <td><%- data[p][i].location %></td>
-                <td><%- data[p][i].registerDate %></td>
-                <td><%- data[p][i].registerTime %></td>
+                <td><%- data[p][i].checkedInDate %></td>
+                <td><%- data[p][i].checkedInTime %></td>
+                <td><%- data[p][i].deliveryTime %></td>
                 <td><%- data[p][i].baggageTagNumber %></td>
                 <td><%- data[p][i].baggageReceiptNumber %></td>
-                <td><%- data[p][i].registeredBy %></td>
+                <td><%- data[p][i].handledBy %></td>
                 <td><%- data[p][i].remarks %></td>
               </tr>
             <% } %>

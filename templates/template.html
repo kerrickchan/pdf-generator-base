@@ -27,9 +27,21 @@
     }
 
     .content {
+      border-width: 2px;
+      border-style: double;
+      padding: 1rem;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: underline;
+      margin: 2rem auto;
     }
 
     .field {
@@ -46,18 +58,14 @@
     }
 
     .hint {
+      font-size: 0.9rem;
     }
 
     .contact {
-      width: calc(100% - 32px);
-      position: absolute;
-      bottom: 16px;
     }
 
     .contact td {
       width: 50%;
-      border-width: 2px;
-      border-style: double none double;
     }
   </style>
 </head>
@@ -65,11 +73,13 @@
 <body>
   <div class="paper">
     <header>
+      <p>To S.F. Express (Hong Kong) Limited :</p>
+      <h1 class="title">Authorization Letter</h1>
     </header>
 
     <main class="content">
       <p class="field">
-        I <u><%= customerName %></u> (Customer Name) authorize <u><%= authorizedPerson %></u> (Authorized Person) who. Passport / ID no. <u><%= passportId %></u> to pick up my luggage refer to Receipt no. <u><%= receiptNo %></u>.
+        I <u><%= customerName %></u> (Customer Name) authorize ___________________ (Authorized Person) who. Passport / ID no. ___________________to pick up my luggage refer to Receipt no. <u><%= receiptNo %></u>.
       </p>
 
       <table class="sign">
@@ -81,8 +91,12 @@
         </tbody>
       </table>
 
+      <h1 class="title">授權書</h1>
+
       <p class="field">
-        我 <u><%= customerName %></u> (顧客姓名) 授權 <u><%= authorizedPerson %></u> (授權人) 憑護照/身份證號碼 <u><%= passportId %></u> (授權人身份證號碼) 取走我的行李,票據號為 <u><%= receiptNo %></u> (票據號)。
+        敬啟者<br>
+        本人 <u><%= customerName %></u> (寄件人姓名) 現授權 ___________________ (提取人姓名), 証件號碼 ____________ 提取本人之行李, 單號: <u><%= receiptNo %></u>。<br><br>
+        此致 順豐速運(香港)有限公司
       </p>
 
       <table class="sign">
@@ -96,33 +110,45 @@
 
       <div class="hint">
         <p>
-          Required Documents for: Authorized Luggage Collection
+          Required Documents for : Authorized Luggage Collection<br>
+          授權他人提取行李所需文件
         </p>
         <ol>
-          <li>An authorized letter with signature of customer (including the name of authorize person and ID no.)</li>
-          <li>The copy of ID or password of the customer</li>
-          <li>Baggage Receipt (original or copy)</li>
+          <li>
+            An authorized letter with signature of customer (including the name of authorize person and ID no.)<br>
+            寄件人簽名授權書(包括提取人姓名及證件號碼)
+          </li>
+          <li>
+            The copy of ID or password of the customer<br>
+            客人身份證或護照副本
+          </li>
+          <li>
+            Baggage Receipt (original or copy)<br>
+            行李提取單據(正本或副本)
+          </li>
         </ol>
       </div>
-    </main>
 
-    <footer>
       <table class="contact">
         <tbody>
+          <tr><td></td><td>地址 Address:</td></tr>
           <tr>
-            <td>Telephone: <%= telephone %></td>
-            <td>Address:</td>
+            <td>電話號碼 Telephone: (852)22610110</td>
+            <td>香港國際機場 1 號客運大樓第五層 008 室(非禁區)</td>
           </tr>
           <tr>
-            <td>Facsimile: <%= fax %></td>
-            <td><%= address %></td>
+            <td>傳真號碼 Facsimile : (852)22610121</td>
+            <td>Level 5 , Shop 008 , Terminal 1, HKIA , (Non-restricted Area)</td>
           </tr>
           <tr>
-            <td>E-mail: <%= email %></td>
-            <td>OPENING HOURS: <%= openingHours %></td>
+            <td>電郵 E-mail : baggagefacilitity@sfmail.sf-express.com</td>
+            <td>OPENING HOURS : 05 : 30 to 01 : 30</td>
           </tr>
         </tbody>
       </table>
+    </main>
+
+    <footer>
     </footer>
   </div>
 </body>

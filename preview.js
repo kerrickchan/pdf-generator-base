@@ -51,9 +51,9 @@ function preview(templateName, data) {
   if (data.date) data.date = transformDate(data.date);
   if (data.data && Array.isArray(data.data)) {
     const items = data.data.map((v) => {
-      if (v.registerDateTime) {
-        v.registerDate = transformDate(v.registerDateTime);
-        v.registerTime = transformTime(v.registerDateTime);
+      if (v.checkedInDateTime) {
+        v.checkedInDate = transformDate(v.checkedInDateTime);
+        v.checkedInTime = transformTime(v.checkedInDateTime);
       }
 
       v.remark = transformParagraph(v.remark);

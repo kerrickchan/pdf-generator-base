@@ -7,20 +7,22 @@
       "no": 1,
       "serviceMode": "Baggage Delivery",
       "serviceLocation": "West Kowloon Station",
-      "registerDateTime": 1674550554469,
+      "checkedInDateTime": 1674550554469,
+      "deliveryTime": 1675692967933,
       "baggageTagNumber": "B2111210001-03",
       "baggageReceiptNumber": "R2111210001",
-      "registeredBy": "Betty Chan",
+      "handledBy": "Betty Chan",
       "remarks": "Will collect bag around 2000"
     },
     {
       "no": 2,
       "serviceType": "Baggage Delivery",
       "location": "West Kowloon Station",
-      "registerDateTime": 1674550554469,
+      "checkedInDateTime": 1674550554469,
+      "deliveryTime": 1675692967933,
       "baggageTagNumber": "B2201220451-01",
       "baggageReceiptNumber": "R2201220451",
-      "registeredBy": "Tom Chan",
+      "handledBy": "Tom Chan",
       "remarks": null
     }
   ],

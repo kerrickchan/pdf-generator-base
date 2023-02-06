@@ -88,29 +88,28 @@
         <tbody>
           <tr>
             <td>Bags</td>
-            <td>Tariff Type</td>
             <td>Charge Period</td>
             <td>Rate</td>
             <td></td>
           </tr>
-          <tr><td><%= numBags %></td><td><%= tariffType %></td><td><%= chargePeriod %></td><td>HKD</td><td><%= unitRate %></td></tr>
+          <tr><td><%= numBags %></td><td><%= chargePeriod %></td><td>HKD</td><td><%= unitRate %></td></tr>
             <tr>
-              <td colspan="3">Gross Amount:</td><td>HKD</td><td><%= grossAmount %></td>
+              <td colspan="2">Gross Amount:</td><td>HKD</td><td><%= grossAmount %></td>
             </tr>
             <tr>
-              <td colspan="3">Less Disc/Adjust:</td><td>HKD</td><td><%= discountAdjustment %></td>
+              <td colspan="2">Less Disc/Adjust:</td><td>HKD</td><td><%= discountAdjustment %></td>
             </tr>
             <tr>
-              <td colspan="3">Net Amount:</td><td>HKD</td><td><%= netAmount %></td>
+              <td colspan="2">Net Amount:</td><td>HKD</td><td><%= netAmount %></td>
             </tr>
             <tr>
-              <td colspan="2">Payment Method:</td><td colspan="3"><%= paymentMethod %></td>
+              <td colspan="1">Payment Method:</td><td colspan="3"><%= paymentMethod %></td>
             </tr>
             <tr>
-              <td colspan="3"></td><td>HKD</td><td><%= totalAmount %></td>
+              <td colspan="2"></td><td>HKD</td><td><%= totalAmount %></td>
             </tr>
             <tr>
-              <td colspan="3">Change:</td><td>HKD</td><td><%= changeAmount %></td>
+              <td colspan="2">Change:</td><td>HKD</td><td><%= changeAmount %></td>
             </tr>
         </tbody>
       </table>
