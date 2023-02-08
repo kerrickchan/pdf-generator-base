@@ -56,6 +56,11 @@ function preview(templateName, data) {
         v.checkedInTime = transformTime(v.checkedInDateTime);
       }
 
+      if (v.deliveryDateTime) {
+        v.deliveryDate = transformDate(v.deliveryDateTime);
+        v.deliveryDateTime = transformTime(v.deliveryDateTime);
+      }
+
       v.remark = transformParagraph(v.remark);
 
       return v;
