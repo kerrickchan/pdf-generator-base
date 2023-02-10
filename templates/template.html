@@ -30,6 +30,7 @@
       border-width: 2px;
       border-style: double;
       padding: 1rem;
+      padding-right: 3rem;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -82,13 +83,13 @@
 
     <main class="content">
       <p class="field">
-        I <u><%= customerName %></u> (Customer Name) authorize ___________________ (Authorized Person)<br>whose Passport / ID no. ___________________ to pick up my luggage refer to Receipt no. <u><%= receiptNo %></u>.
+        I <u><%= customerName %></u> (Customer Name) authorize ___________________ (Authorized Person) whose Passport / ID no. ___________________ to pick up my luggage refer to Receipt no. <u><%= receiptNo %></u>.
       </p>
 
       <table class="sign">
         <tbody>
           <tr><td>Signature: </td><td>_________________</td></tr>
-          <tr><td>Date: </td><td><u><%= dateTime %></u></td></tr>
+          <tr><td>Date: </td><td>_________________</td></tr>
         </tbody>
       </table>
 
@@ -96,14 +97,14 @@
 
       <p class="field">
         敬啟者<br>
-        本人 <u><%= customerName %></u> (寄件人姓名) 現授權 ___________________ (提取人姓名), 証件號碼 ____________ 提取<br>本人之行李, 單號: <u><%= receiptNo %></u>。<br><br>
+        本人 <u><%= customerName %></u> (寄件人姓名) 現授權 ___________________ (提取人姓名), 証件號碼 ____________ 提取本人之行李, 單號: <u><%= receiptNo %></u>。<br><br>
         此致 順豐速運(香港)有限公司
       </p>
 
       <table class="sign">
         <tbody>
           <tr><td>簽名: </td><td>_________________</td></tr>
-          <tr><td>日期: </td><td><u><%= dateTime %></u></td></tr>
+          <tr><td>日期: </td><td>_________________</td></tr>
         </tbody>
       </table>
 
